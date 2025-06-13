@@ -212,13 +212,15 @@ main {
     font-size: 0.9rem;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.3rem;
+
+
 }@media (max-width: 600px) {
     .map-with-sidebar {
         flex-direction: column;
     }
 
     .sidebar {
-        position: static; /* <-- detta är nyckeln! */
+        position: static;
         width: 100%;
         max-height: 200px;
         overflow-y: auto;
