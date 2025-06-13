@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <title>Malmö Händelser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    />
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+    <header class="toolbar">
+        <div class="controls">
+            <div class="control">
+                <label for="crimeFilter">Brottstyp</label>
+                <select id="crimeFilter">
+                    <option value="">Alla</option>
+                </select>
+            </div>
+            <div class="control">
+                <label for="dateSlider">Från datum</label>
+                <input type="range" id="dateSlider" />
+                <output id="dateLabel"></output>
+            </div>
+            <div class="control">
+                <label>Total antal:</label>
+                <span id="totalCount">0</span>
+            </div>
+        </div>
+        <button id="toggleUndefined">Visa odefinierade områden</button>
+    </header>
+
+    <main>
+        <div class="map-with-sidebar">
+            <aside class="sidebar">
+                <h2>10 senaste händelserna</h2>
+                <ul id="eventList"></ul>
+            </aside>
+            <div id="map"></div>
+        </div>
+
+            <section class="stats">
+                <div class="chart-wrapper">
+                    <div class="chart-container">
+                        <canvas id="crimeChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="areaChart"></canvas>
+                    </div>
+                </div>
+            </section>
+    </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/App.js"></script>
+</body>
+</html>

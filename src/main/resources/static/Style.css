@@ -1,0 +1,228 @@
+:root {
+    --color-bg: #f0f2f5;
+    --color-panel: #ffffff;
+    --color-primary: #4a90e2;
+    --color-primary-hover: #357ab8;
+    --color-text: #333333;
+    --radius: 0.5rem;
+    --gap: 1rem;
+    --transition: 0.25s;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--gap);
+    background: var(--color-panel);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    gap: var(--gap);
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.control label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.control select,
+.control input[type="range"] {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    background: #fff;
+    font-size: 0.9rem;
+    transition: border-color var(--transition);
+}
+
+.control select:focus,
+.control input[type="range"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+#dateLabel {
+    margin-top: 0.25em;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#toggleUndefined {
+    padding: 0.6em 1.2em;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background var(--transition);
+    white-space: nowrap;
+}
+
+#toggleUndefined:hover {
+    background: var(--color-primary-hover);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--gap);
+    gap: var(--gap);
+}
+
+
+#map {
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #toggleUndefined {
+        width: 100%;
+    }
+    #map {
+        height: 400px;
+    }
+}
+.stats {
+    width: 100%;
+    max-width: 1000px;
+    background: var(--color-panel);
+    padding: var(--gap);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-top: 0;
+}
+.stats h2 {
+    text-align: center;
+    margin: 0 0 var(--gap) 0;
+    font-size: 1.25rem;
+}
+.chart-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
+}
+
+.chart-wrapper canvas {
+    flex: 1 1 300px;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+
+.total-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.total-control label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#totalCount {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.map-with-sidebar {
+     display: flex;
+     flex-direction: row;
+     align-items: flex-start;
+     gap: var(--gap);
+     width: 100%;
+     max-width: 1000px;
+     margin: 0 auto;
+     box-sizing: border-box;
+ }
+
+.sidebar {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 250px;
+    background: var(--color-panel);
+    padding: var(--gap);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 550px;
+    overflow-y: auto;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.3rem;
+}
+@media (max-width: 768px) {
+    .map-with-sidebar {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    #map {
+        height: 400px;
+    }
+}
