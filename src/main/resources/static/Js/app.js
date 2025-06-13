@@ -1,10 +1,10 @@
-import { MapManager }   from './MapManager.js';
-import { EventService } from './EventService.js';
-import { FilterController } from './FilterController.js';
-import { MarkerRenderer } from './MarkerRenderer.js';
-import { StatsController } from './StatsController.js';
-import { ToggleController } from './ToggleController.js';
-import { EventListController } from './EventListController.js';
+import { MapManager }   from './mapManager.js';
+import { EventService } from './eventService.js';
+import { FilterController } from './filterController.js';
+import { MarkerRenderer } from './markerRenderer.js';
+import { StatsController } from './statsController.js';
+import { ToggleController } from './toggleController.js';
+import { EventListController } from './eventListController.js';
 
 class App {
     constructor() {
